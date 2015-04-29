@@ -50,13 +50,6 @@
 %-----------------------------------------------------------
 
 \title{A Browser-based Neume Metadata Editor}
-%\author{ 
-%    \vspace{0.3\baselineskip} 
-%    \normalsize
-%%    Andrew Fogarty (andrew.fogarty@mail.mcgill.ca), Andrew Hankinson (andrew.hankinson@mail.mcgill.ca), Ichiro Fujinaga (ich@music.mcgill.ca)
-%
-%}
-%\author[shortname]{Andrew Fogarty \inst{1} \and Andrew Hankinson \inst{2} \and Ichiro Fujinaga}
 \author{
     \vspace{0.3\baselineskip} 
     \normalsize
@@ -95,19 +88,9 @@
         \vspace{1.1cm}
 
         \begin{block}{Motivation}
-%The SIMSSA project aims to create searchable representations of musical sources. We have started by identifying neumes in early chant manuscripts via optical music recognition.  Identifying a particular graphical shape as a particular neume name is useful for correlating the same ``tune'' or sequence of neumes, in multiple sources. We have developed a system for mapping names and images onto unique neume identifiers.
-
 The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1]. The goal of Cantus Ultimus is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted end-users to be able to construct search queries without needing prior knowledge about how the data is named in the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.  We developed the Neume Metadata Editor to satisfy these requirements.
         \end{block}
         \blockSpace{}
-
-        %\vspace{-1.7cm}
-
-%        \begin{block}{}
-%            \centering
-%            %\includegraphics[scale=1]{mei_editor_diva}
-%        \end{block}
-%        \blockSpace{}
 
         \begin{block}{Software Design}
         
@@ -117,8 +100,6 @@ The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1
                 \normalsize
                 \vspace{0.25\baselineskip}
             \end{center}
-       %            \begin{easylist}[itemize]
-%            \ListProperties(Margin1=0cm) 
 The Neume Metadata Editor treats names and images as unique objects that exist in relation to neume types. By establishing these neume-to-name and neume-to-image relationships our system can distinguish between neumes of the same type and neumes of different types. Researchers can enter neume data manually or import neume data from MEI files.
 Once a set of names have been mapped to a neume identifier, any name from the set can be used to retrieve the neume identifier or the corresponding set of neume images.
 Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate with the Neume Metadata Editor directly.\\
@@ -126,34 +107,6 @@ Client applications can make these kinds of retrievals by using representational
 
 By using the Neume Metadata Editor to categorize neume types, we avoid redundancy in how we index instances of neumes in our Cantus Ultimus search engine. Rather than indexing multiple names for every single neume instance, we represent neume types with single, canonical identifiers. The JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
         
-        
-        
-        
-%        \begin{center}
-%            \vspace{-0.75\baselineskip}
-%            \small{http://dev-cantus.simssa.ca/editor/}
-%            \normalsize
-%            \vspace{0.25\baselineskip}
-%        \end{center}
-
-%\raggedright
-%meix.js synchronizes with a Diva.js$^3$ document viewer pane for editing MEI representations of music manuscripts.
-%            
-%            \vspace{0.5\baselineskip}
-%            \begin{easylist}[itemize]
-%            \ListProperties(Margin1=0cm)
-%# Editing the MEI \xml{zone} elements changes the positioning and size of the highlighted areas
-%# Dragging/resizing the highlighted areas changes the \att{ulx}/\att{uly}/\att{lrx}/\att{lry} values of the \xml{zone} elements
-%# Users can manually create new zones, which are then automatically inserted in the proper location in the MEI
-%# Hundreds of pages in a manuscript are linked to corresponding MEI files and automatically loaded
-%
-%% \vspace{1cm}
-%% \centering
-%% \includegraphics[scale=1.7]{highlight_atts}
-%% \vspace{.5cm}
-%
-%# Hovering over a highlight displays all attributes associated with the musical object linked to the \xml{zone}
-%            \end{easylist}
         \end{block}
         \blockSpace{}
 
@@ -184,12 +137,6 @@ By using the Neume Metadata Editor to categorize neume types, we avoid redundanc
         \vspace{2.2cm}
 
         \begin{block}{The Editor \& API}
-%            \begin{center}
-%                \vspace{-0.75\baselineskip}
-%                \small{https://github.com/DDMAL/meix.js}
-%                \normalsize
-%                \vspace{0.25\baselineskip}
-%            \end{center}
 		\begin{easylist}[itemize]
 		\ListProperties(Margin1=0cm, Margin2=3cm)
 		# User-facing web application for editing neume metadata.  Users can:
@@ -202,16 +149,6 @@ By using the Neume Metadata Editor to categorize neume types, we avoid redundanc
 		## Retrieve name sets for particular nomenclatures.
 		## Retrieve image sets for particular names or unique identifiers.
 		\end{easylist}
-%            \begin{easylist}[itemize]
-%            \ListProperties(Margin1=0cm, Margin2=3cm)
-%# JavaScript library using the ACE Text Editor$^1$:
-%## ACE features: XML syntax highlighting, find and replace, and code folding, among others
-%## Tabbed view for opening multiple MEI files simultaneously
-%# XML validation with custom MEI schemas:
-%## In browser using xmllint compiled to JavaScript via Emscripten$^2$
-%## Server-side using an included custom Node.js server that interfaces with command line xmllint
-%# Has a well-documented plugin structure for integration with other applications
-%            \end{easylist}
         \end{block}
         \blockSpace{}
 
@@ -223,40 +160,11 @@ By using the Neume Metadata Editor to categorize neume types, we avoid redundanc
         \end{block}
         \blockSpace{}
 
-%        \begin{block}{Verovio}
-%            \begin{center}
-%                \vspace{-0.75\baselineskip}
-%                \small{http://dev.simssa.ca/veditor/}
-%                \normalsize
-%                \vspace{0.25\baselineskip}
-%            \end{center}
-%
-%meix.js synchronizes with a Verovio$^4$-generated score with drag-and-drop editing functionality.
-%
-%            \vspace{0.5\baselineskip}
-%
-%            \begin{easylist}[itemize]
-%            \ListProperties(Margin1=0cm)
-%# Based on editor prototype at http://rism-ch.github.io/verovio/ mei-editor.xhtml
-%# Dragging and dropping an element in Verovio re-renders the score and updates the MEI
-%# Manually editing the MEI regenerates the score
-%# Score automatically paginates by dividing MEI into systems dependent on page width  
-%            \end{easylist}
-%
-%        \end{block}
-%        \blockSpace{}
-
         \begin{block}{References}
         \footnotesize
 		[1] http://cantus.simssa.ca/        
         
         [2] http://lucene.apache.org/solr/
-
-%        [2] http://mozakai.blogspot.ca/2012/03/howto-port-cc-library-to-javascript.html
-%
-%        [3] https://ddmal.github.io/diva.js/
-%
-%        [4] http://rism-ch.github.io/verovio/index.xhtml
         \end{block}   
 
         \begin{block}{Acknowledgements}
