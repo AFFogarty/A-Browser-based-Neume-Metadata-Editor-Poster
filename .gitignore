@@ -23,3 +23,11 @@
 *.synctex.gz
 
 *.pdf
+
+.DS_Store
+
+*.nav
+
+*.vrb
+
+*.snm
