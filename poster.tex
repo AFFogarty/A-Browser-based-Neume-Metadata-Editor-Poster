@@ -12,6 +12,7 @@
 \usepackage{wrapfig}
 \usepackage[sharp]{easylist}
 \usepackage{setspace}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
 \setlength{\paperwidth}{120cm}
 \setlength{\paperheight}{150cm}
@@ -34,16 +35,16 @@
 \insertcaption}
 
 \newcommand{\newauthor}[2]{
-  \parbox{0.26\textwidth}{
-    \texorpdfstring
-      {
-        \centering
-        \textbf{#1} \\
-        \vspace{0.3\baselineskip} 
-        \small \texttt{#2}
-      }
-      {#1}
-  }
+\parbox{0.26\textwidth}{
+\texorpdfstring
+{
+\centering
+\textbf{#1} \\
+\vspace{0.3\baselineskip} 
+\small \texttt{#2}
+}
+{#1}
+}
 }
 %-----------------------------------------------------------
 % Name and authors of poster/paper/research
@@ -51,22 +52,22 @@
 
 \title{A Browser-based Neume Metadata Editor}
 \author{
-    \vspace{0.3\baselineskip} 
-    \normalsize
-  \newauthor{Andrew Fogarty}{andrew.fogarty@mail.mcgill.ca}
+\vspace{0.3\baselineskip} 
+\normalsize
+\newauthor{Andrew Fogarty}{andrew.fogarty@mail.mcgill.ca}
 \and
-  \newauthor{Andrew Hankinson}{andrew.hankinson@mail.mcgill.ca}
+\newauthor{Andrew Hankinson}{andrew.hankinson@mail.mcgill.ca}
 \and
-  \newauthor{Ichiro Fujinaga}{ich@music.mcgill.ca}
+\newauthor{Ichiro Fujinaga}{ich@music.mcgill.ca}
 }
 \institute{
-    \vspace{0.2\baselineskip} 
-    \normalsize Distributed Digital Music Archives and Libraries Lab, CIRMMT, Schulich School of Music, McGill University
+\vspace{0.2\baselineskip} 
+\normalsize Distributed Digital Music Archives and Libraries Lab, CIRMMT, Schulich School of Music, McGill University
 }
 
 \newcommand{\blockSpace}{\vskip 0.75ex}
-\newcommand*{\xml}[1]{\small{\texttt{<#1>}}\normalsize}
-\newcommand*{\att}[1]{\small{\texttt{@#1}}\normalsize}
+%\newcommand*{\xml}[1]{\small{\texttt{<#1>}}\normalsize}
+%\newcommand*{\att}[1]{\small{\texttt{@#1}}\normalsize}
 
 %-----------------------------------------------------------
 % Start the poster itself
@@ -79,102 +80,104 @@
 % The Poster
 % ----------
 \begin{frame}[fragile,t]
-    \begin{columns}
-    \begin{column}{0.00\textwidth}
-    \end{column}
+\begin{columns}
+\begin{column}{0.47\textwidth}
 
-    \begin{column}{0.47\textwidth}
+\vspace{1.1cm}
 
-        \vspace{1.1cm}
-
-        \begin{block}{Motivation}
+\begin{block}{Motivation}
 The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1]. The goal of Cantus Ultimus is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted end-users to be able to construct search queries without needing prior knowledge about how the data is named in the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.  We developed the Neume Metadata Editor to satisfy these requirements.
-        \end{block}
-        \blockSpace{}
+\end{block}
+\blockSpace{}
 
-        \begin{block}{Software Design}
-        
-            \begin{center}
-                \vspace{-0.75\baselineskip}
-                \small{http://github.com/DDMAL/cantus/}
-                \normalsize
-                \vspace{0.25\baselineskip}
-            \end{center}
+\vspace{-1.6cm}
+
+\begin{block}{}
+\centering
+\includegraphics[scale=1]{images/different-hands.png} 
+
+Figure 1: Handwriting change in the St. Gallen 391 manuscript
+\end{block}
+\blockSpace{}
+
+\begin{block}{Software Design}
+\begin{center}
+\vspace{-0.75\baselineskip}
+\small{http://github.com/DDMAL/cantus/}
+\normalsize
+\vspace{0.25\baselineskip}
+\end{center}
 The Neume Metadata Editor treats names and images as unique objects that exist in relation to neume types. By establishing these neume-to-name and neume-to-image relationships our system can distinguish between neumes of the same type and neumes of different types. Researchers can enter neume data manually or import neume data from MEI files.
 Once a set of names have been mapped to a neume identifier, any name from the set can be used to retrieve the neume identifier or the corresponding set of neume images.
 Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate with the Neume Metadata Editor directly.\\
 \vspace{\baselineskip}
 
 By using the Neume Metadata Editor to categorize neume types, we avoid redundancy in how we index instances of neumes in our Cantus Ultimus search engine. Rather than indexing multiple names for every single neume instance, we represent neume types with single, canonical identifiers. The JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
-        
-        \end{block}
-    \end{column}
 
-    \begin{column}{0.00\textwidth}
-    \end{column}
+\end{block}
+\end{column}
 
-    \begin{column}{0.47\textwidth}
-        
-        \vspace{2.2cm}
+\begin{column}{0.47\textwidth}
 
-        \begin{block}{The Editor \& API}
-		\begin{easylist}[itemize]
-		\ListProperties(Margin1=0cm, Margin2=3cm)
-		# User-facing web application for editing neume metadata.  Users can:
-		## Categorize neume glyphs by unique identifiers.
-		## Assign names to unique neume identifiers.
-		## Group names by user-defined nomenclatures.
-		## Assign glyph images to unique neume identifiers.
-		# RESTful API for easy integration with external client applications.  Client applications can:
-		## Retrieve individual neumes to retrieve names and images.
-		## Retrieve name sets for particular nomenclatures.
-		## Retrieve image sets for particular names or unique identifiers.
-		\end{easylist}
-        \end{block}
-        \blockSpace{}
+\vspace{1.1cm}
 
-%        \vspace{-1.6cm}
-%
-%        \begin{block}{}
-%            \centering
-%            %\includegraphics[scale=1]{mei_editor_verovio}
-%        \end{block}
-%        \blockSpace{}
+\begin{block}{The Editor \& API}
+\begin{easylist}[itemize]
+\ListProperties(Margin1=0cm, Margin2=3cm)
+# User-facing web application for editing neume metadata.  Users can:
+## Categorize neume glyphs by unique identifiers.
+## Assign names to unique neume identifiers.
+## Group names by user-defined nomenclatures.
+## Assign glyph images to unique neume identifiers.
+# RESTful API for easy integration with external client applications.  Client applications can:
+## Retrieve individual neumes to retrieve names and images.
+## Retrieve name sets for particular nomenclatures.
+## Retrieve image sets for particular names or unique identifiers.
+\end{easylist}
+\end{block}
+\blockSpace{}
 
-        \begin{block}{References}
-        \footnotesize
-		[1] http://cantus.simssa.ca/        
-        
-        [2] http://lucene.apache.org/solr/
-        \end{block}   
+\vspace{-1.6cm}
 
-        \begin{block}{Acknowledgements}
-        \footnotesize
-        This research was supported by the Social Sciences and Humanities Research Council of Canada.
-        \end{block}
-        
-                \blockSpace{}
+\begin{block}{}
+\centering
+\includegraphics[scale=1]{images/web-interface.png} 
 
-        \vspace{-2cm}
+Figure 2: The web interface prototype, showing a ``Torculus Simple'' neume being edited
+\end{block}
+\blockSpace{}
 
-        \begin{block}{}
-            \centering
-            \raisebox{0.7cm}{\includegraphics[scale=0.15]{images/McGill_logo}}
-            \hspace{1.2cm} 
-            \raisebox{0.1cm}{\includegraphics[scale=0.6]{images/Schulich_logo}}
-            \hspace{1.2cm} 
-            \includegraphics[scale=0.2]{images/CIRMMT_logo}
+\begin{block}{References}
+\footnotesize
+[1] http://cantus.simssa.ca/        
 
-            \includegraphics[scale=1.4]{images/SSHRC_logo}
+[2] http://lucene.apache.org/solr/
+\end{block}   
 
-            \includegraphics[scale=0.35]{images/ddmal_logo_large}
-            \hspace{2cm}
-            \raisebox{-0.8cm}{\includegraphics[scale=1.4]{images/SIMSSA_logo}}
-        \end{block}
+\begin{block}{Acknowledgements}     
+\footnotesize
+This research was supported by the Social Sciences and Humanities Research Council of Canada.
+\end{block}
 
-        \end{column}
+\blockSpace{}
 
-\begin{column}{0.00\textwidth}
+%\vspace{-2cm}
+
+\begin{block}{}
+\centering
+\raisebox{0.7cm}{\includegraphics[scale=0.15]{images/McGill_logo}}
+\hspace{1.2cm} 
+\raisebox{0.1cm}{\includegraphics[scale=0.6]{images/Schulich_logo}}
+\hspace{1.2cm} 
+\includegraphics[scale=0.2]{images/CIRMMT_logo}
+
+\includegraphics[scale=1.4]{images/SSHRC_logo}
+
+\includegraphics[scale=0.35]{images/ddmal_logo_large}
+\hspace{2cm}
+\raisebox{-0.8cm}{\includegraphics[scale=1.4]{images/SIMSSA_logo}}
+\end{block}
+
 \end{column}
 \end{columns}
 \end{frame}
