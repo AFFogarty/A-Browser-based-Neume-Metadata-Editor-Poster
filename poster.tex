@@ -107,12 +107,26 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 \normalsize
 \vspace{0.25\baselineskip}
 \end{center}
-The Neume Metadata Editor treats names and images as unique objects that exist in relation to neume types. By establishing these neume-to-name and neume-to-image relationships our system can distinguish between neumes of the same type and neumes of different types. Researchers can enter neume data manually or import neume data from MEI files.
-Once a set of names have been mapped to a neume identifier, any name from the set can be used to retrieve the neume identifier or the corresponding set of neume images.
-Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate with the Neume Metadata Editor directly.\\
-\vspace{\baselineskip}
 
-By using the Neume Metadata Editor to categorize neume types, we avoid redundancy in how we index instances of neumes in our Cantus Ultimus search engine. Rather than indexing multiple names for every single neume instance, we represent neume types with single, canonical identifiers. The JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
+\begin{easylist}[itemize]
+\ListProperties(Margin1=0cm, Margin2=3cm)
+# Names and images are unique objects that exist in relation to neume types.
+## Neume-to-name and neume-to-image relationships.
+## System can distinguish between neumes of the same type and neumes of different types.
+# Enter neume data manually or import neume data from MEI files.
+# Name from a set can be used to retrieve the neume identifier or the corresponding set of neume images.
+# Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate with the Neume Metadata Editor directly.
+# System avoids redundancy in how we index instances of neumes in our Cantus Ultimus search engine.
+## Represent neume types with single, canonical identifiers.
+# JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
+\end{easylist}
+
+% The Neume Metadata Editor treats names and images as unique objects that exist in relation to neume types. By establishing these neume-to-name and neume-to-image relationships our system can distinguish between neumes of the same type and neumes of different types. Researchers can enter neume data manually or import neume data from MEI files.
+% Once a set of names have been mapped to a neume identifier, any name from the set can be used to retrieve the neume identifier or the corresponding set of neume images.
+% Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate with the Neume Metadata Editor directly.\\
+%\vspace{\baselineskip}
+
+% By using the Neume Metadata Editor to categorize neume types, we avoid redundancy in how we index instances of neumes in our Cantus Ultimus search engine. Rather than indexing multiple names for every single neume instance, we represent neume types with single, canonical identifiers. The JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
 
 \end{block}
 \end{column}
