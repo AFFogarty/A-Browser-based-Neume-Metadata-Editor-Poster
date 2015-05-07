@@ -83,20 +83,31 @@
 \begin{columns}
 \begin{column}{0.47\textwidth}
 
-\vspace{2.2cm}
+\vspace{-3.7cm}
 
 \begin{block}{Motivation}
-The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1]. The goal of Cantus Ultimus is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted end-users to be able to construct search queries without needing prior knowledge about how the data is named in the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.  We developed the Neume Metadata Editor to satisfy these requirements.
+The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1]. The goal of Cantus Ultimus is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted end-users to be able to construct search queries without needing prior knowledge about how the data is named in the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.
+%We developed the Neume Metadata Editor to satisfy these requirements.
 \end{block}
 \blockSpace{}
 
-\vspace{-1.7cm}
+\vspace{-2.5cm}
+
+%\begin{block}{}
+%\centering
+%\includegraphics[scale=1]{images/different-hands.png}
+% 
+%
+%Figure 1: Handwriting change in the St. Gallen 391 manuscript
+%\end{block}
+%\blockSpace{}
 
 \begin{block}{}
 \centering
-\includegraphics[scale=1]{images/different-hands.png} 
+\includegraphics[scale=2.5]{images/neume-comparison/neume1.png}\hspace{1em}
+\includegraphics[scale=1.85]{images/neume-comparison/neume2.png} 
 
-Figure 1: Handwriting change in the St. Gallen 391 manuscript
+Figure 1: St. Gallen Clivis (left) and Salzinnes Clivis (right)
 \end{block}
 \blockSpace{}
 
@@ -111,14 +122,13 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 \begin{easylist}[itemize]
 \ListProperties(Margin1=0cm, Margin2=3cm)
 # Names and images are unique objects that exist in relation to neume types.
-## Neume-to-name and neume-to-image relationships.
-## System can distinguish between neumes of the same type and neumes of different types.
-# Neume data can be entered manually or imported from MEI files.
-# Name from a set can be used to retrieve the neume identifier or the corresponding set of neume images.
-## Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate directly.
-# System avoids redundancy in how we index instances of neumes in our Cantus Ultimus search engine.
-## Represent neume types with single, canonical identifiers.
-## JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
+# Neume-to-name and neume-to-image relationships.
+# System can distinguish between neumes of the same type and neumes of different types.
+%# Name from a set can be used to retrieve the neume identifier or the corresponding set of neume images.
+%## Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate directly.
+%# System avoids redundancy in how we index instances of neumes in our Cantus Ultimus search engine.
+# Represent neume types with single, canonical identifiers.
+%## JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
 \end{easylist}
 
 % The Neume Metadata Editor treats names and images as unique objects that exist in relation to neume types. By establishing these neume-to-name and neume-to-image relationships our system can distinguish between neumes of the same type and neumes of different types. Researchers can enter neume data manually or import neume data from MEI files.
@@ -128,6 +138,16 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 
 % By using the Neume Metadata Editor to categorize neume types, we avoid redundancy in how we index instances of neumes in our Cantus Ultimus search engine. Rather than indexing multiple names for every single neume instance, we represent neume types with single, canonical identifiers. The JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
 
+\vspace{-1.6cm}
+
+\begin{block}{}
+\centering
+\includegraphics[scale=1]{images/neume-list-interface.png} 
+
+Figure 2: The web interface prototype, showing a list of neumes, names, and images
+\end{block}
+\blockSpace{}
+
 \end{block}
 \end{column}
 \begin{column}{0.47\textwidth}
@@ -136,14 +156,13 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 \begin{easylist}[itemize]
 \ListProperties(Margin1=0cm, Margin2=3cm)
 # User-facing web application for editing neume metadata.  Users can:
-## Categorize neume glyphs by unique identifiers.
 ## Assign names to unique neume identifiers.
 ## Group names by user-defined nomenclatures.
 ## Assign glyph images to unique neume identifiers.
+## Upload GameraXML and MEI files to extract names and images.
 # RESTful API for easy integration with external client applications.  Client applications can:
-## Retrieve individual neumes to retrieve names and images.
-## Retrieve name sets for particular nomenclatures.
-## Retrieve image sets for particular names or unique identifiers.
+## Retrieve names and images for particular neumes and nomenclatures.
+## Create, modify, and delete  neumes, names, images, and nomenclatures.
 \end{easylist}
 \end{block}
 \blockSpace{}
@@ -154,7 +173,7 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 \centering
 \includegraphics[scale=1]{images/web-interface.png} 
 
-Figure 2: The web interface prototype, showing a ``Torculus Simple'' neume being edited
+Figure 3: The web interface prototype, showing a ``Virga Episema'' neume being edited
 \end{block}
 \blockSpace{}
 
@@ -174,7 +193,7 @@ This research was supported by the Social Sciences and Humanities Research Counc
 
 \blockSpace{}
 
-%\vspace{-2cm}
+\vspace{-3.5cm}
 
 \begin{block}{}
 \centering
