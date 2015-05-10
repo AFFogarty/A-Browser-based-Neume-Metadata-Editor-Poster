@@ -86,7 +86,7 @@
 \vspace{-3.7cm}
 
 \begin{block}{Motivation}
-The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1]. The goal of Cantus Ultimus is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted end-users to be able to construct search queries without needing prior knowledge about how the data is named in the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.
+The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1], the goal of which is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted users to be able to construct search queries without knowing how the data is named in our database and used by the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.
 %We developed the Neume Metadata Editor to satisfy these requirements.
 \end{block}
 \blockSpace{}
@@ -113,11 +113,13 @@ Figure 1: St. Gallen Clivis (left) and Salzinnes Clivis (right)
 
 \begin{block}{Design}
 \begin{center}
-\vspace{-0.75\baselineskip}
+\vspace{-0.25\baselineskip}
 \small{http://github.com/DDMAL/cantus/}
 \normalsize
 \vspace{0.25\baselineskip}
 \end{center}
+
+The design goals were to:
 
 \begin{easylist}[itemize]
 \ListProperties(Margin1=0cm, Margin2=3cm)
