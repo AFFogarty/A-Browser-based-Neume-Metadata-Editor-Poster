@@ -83,6 +83,9 @@
 
 \begin{columns}
 \begin{column}{\onecolwid}
+
+\vspace{-4cm}
+
 \begin{block}{Motivation}
 The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1], the goal of which is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted users to be able to construct search queries without knowing how the data is named in our database and used by the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.
 %We developed the Neume Metadata Editor to satisfy these requirements.
@@ -101,7 +104,7 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 \end{column}
 \end{columns}
 
-\vspace{-1.5cm}
+\vspace{-3cm}
 
 \begin{columns}
 \begin{column}{\onecolwid}
@@ -135,18 +138,7 @@ The design goals were to:
 # Distinguish between neumes of the same type and neumes of different types.
 # Store images that depict the same neume type in different handwriting styles (see Figure 1).
 # Provide browser-based GUI (see Figures 2 and 3) and RESTful API.
-%# Name from a set can be used to retrieve the neume identifier or the corresponding set of neume images.
-%## Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate directly.
-%# System avoids redundancy in how we index instances of neumes in our Cantus Ultimus search engine.
-%## JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
 \end{easylist}
-
-% The Neume Metadata Editor treats names and images as unique objects that exist in relation to neume types. By establishing these neume-to-name and neume-to-image relationships our system can distinguish between neumes of the same type and neumes of different types. Researchers can enter neume data manually or import neume data from MEI files.
-% Once a set of names have been mapped to a neume identifier, any name from the set can be used to retrieve the neume identifier or the corresponding set of neume images.
-% Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate with the Neume Metadata Editor directly.\\
-%\vspace{\baselineskip}
-
-% By using the Neume Metadata Editor to categorize neume types, we avoid redundancy in how we index instances of neumes in our Cantus Ultimus search engine. Rather than indexing multiple names for every single neume instance, we represent neume types with single, canonical identifiers. The JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
 
 %\vspace{-1.6cm}
 \end{block}
@@ -158,11 +150,10 @@ The design goals were to:
 
 \end{columns}
 
-\vspace{-1cm}
+\vspace{-2cm}
 
 \begin{columns}
 \begin{column}{\onecolwid}
-%\vspace{2.2cm}
 \begin{block}{The Editor \& API}
 \raggedright
 Browser-based web application for editing neume metadata.  Users can:
@@ -200,6 +191,31 @@ Figure 3: Editing a ``Virga Episema'' neume
 
 \begin{columns}
 \begin{column}{\onecolwid}
+\begin{block}{}
+\vspace{-2cm}
+\centering
+\includegraphics[scale=0.2625]{images/McGill_logo}
+\hspace{1.2cm} 
+\includegraphics[scale=0.75]{images/Schulich_logo}
+
+\vspace{0.75cm}
+
+\includegraphics[scale=0.2625]{images/CIRMMT_logo}
+
+\vspace{0.5cm}
+
+\includegraphics[scale=0.36]{images/ddmal_logo_large}
+\includegraphics[scale=1]{images/SIMSSA_logo}
+
+\vspace{1.5cm}
+
+\includegraphics[width=\onecolwid]{images/SSHRC_logo}
+\end{block}
+\end{column}
+
+\begin{column}{\onecolwid}
+\vspace{3cm}
+
 \begin{block}{References}
 \footnotesize
 [1] http://cantus.simssa.ca/        
@@ -211,31 +227,16 @@ Figure 3: Editing a ``Virga Episema'' neume
 \begin{block}{Acknowledgements}     
 \raggedright
 This research was supported by the Social Sciences and Humanities Research Council of Canada.
+
+%\vspace{2em}
+
+\begin{flushright}
+Music Encoding Conference 2015
+\end{flushright}
 \end{block}
 
-\end{column}
-\begin{column}{\onecolwid}
-\begin{block}{}
-\vspace{-2cm}
-\centering
-\includegraphics[scale=0.2625]{images/McGill_logo}
-\hspace{1.2cm} 
-\includegraphics[scale=0.75]{images/Schulich_logo}
-\hspace{1.2cm} 
-\includegraphics[scale=0.2625]{images/CIRMMT_logo}
-
-\centering
-\includegraphics[scale=0.36]{images/ddmal_logo_large}
-\includegraphics[scale=1]{images/SIMSSA_logo}
-
-\includegraphics[width=\onecolwid]{images/SSHRC_logo}
-\end{block}
 \end{column}
 \end{columns}
-
-\vspace{1em}
-
-Music Encoding Conference 2015
 \end{frame}
 
 \end{document}
