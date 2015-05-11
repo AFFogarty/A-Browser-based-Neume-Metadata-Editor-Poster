@@ -14,8 +14,8 @@
 \usepackage{setspace}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
-\setlength{\paperwidth}{120cm}
-\setlength{\paperheight}{150cm}
+\setlength{\paperwidth}{90cm}
+\setlength{\paperheight}{120cm}
 \setlength{\topmargin}{0cm}%
 
 \newlength{\sepwid}
@@ -81,9 +81,9 @@
 % ----------
 \begin{frame}[fragile,t]
 \begin{columns}
-\begin{column}{0.47\textwidth}
+\begin{column}{\onecolwid}
 
-\vspace{-3.7cm}
+\vspace{0.5cm}
 
 \begin{block}{Motivation}
 The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1], the goal of which is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted users to be able to construct search queries without knowing how the data is named in our database and used by the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.
@@ -123,13 +123,14 @@ The design goals were to:
 
 \begin{easylist}[itemize]
 \ListProperties(Margin1=0cm, Margin2=3cm)
-# Names and images are unique objects that exist in relation to neume types.
-# Neume-to-name and neume-to-image relationships.
-# System can distinguish between neumes of the same type and neumes of different types.
+# Store neumes, names, and images as unique objects.
+# Represent neume types with single, canonical identifiers.
+# Establish neume-to-name and neume-to-image relationships.
+# Distinguish between neumes of the same type and neumes of different types.
+# Provide browser-based GUI and RESTful API.
 %# Name from a set can be used to retrieve the neume identifier or the corresponding set of neume images.
 %## Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate directly.
 %# System avoids redundancy in how we index instances of neumes in our Cantus Ultimus search engine.
-# Represent neume types with single, canonical identifiers.
 %## JavaScript search interface makes only one request to the Neume Metadata Editor and then handles the rest of the name-to-identifier translation on the client-side in real-time.
 \end{easylist}
 
@@ -144,25 +145,28 @@ The design goals were to:
 
 \begin{block}{}
 \centering
-\includegraphics[scale=1]{images/neume-list-interface.png} 
+\includegraphics[width=\onecolwid]{images/neume-list-interface.png} 
 
 Figure 2: The web interface prototype, showing a list of neumes, names, and images
-\end{block}
-\blockSpace{}
+
 
 \end{block}
+\blockSpace{}
+\end{block}
 \end{column}
-\begin{column}{0.47\textwidth}
+\begin{column}{\onecolwid}
 \vspace{2.2cm}
 \begin{block}{The Editor \& API}
+\raggedright
 \begin{easylist}[itemize]
 \ListProperties(Margin1=0cm, Margin2=3cm)
-# User-facing web application for editing neume metadata.  Users can:
+# Browser-based web application for editing neume metadata (see Figures 2 and 3).  Users can:
+## Create, update, and delete neumes, names, and images.
 ## Assign names to unique neume identifiers.
 ## Group names by user-defined nomenclatures.
-## Assign glyph images to unique neume identifiers.
+## Assign glyph images (see Figure 1) to unique neume identifiers.
 ## Upload GameraXML and MEI files to extract names and images.
-# RESTful API for easy integration with external client applications.  Client applications can:
+# RESTful API for easy integration with external client applications, which can:
 ## Retrieve names and images for particular neumes and nomenclatures.
 ## Create, modify, and delete  neumes, names, images, and nomenclatures.
 \end{easylist}
@@ -190,7 +194,9 @@ Figure 3: The web interface prototype, showing a ``Virga Episema'' neume being e
 
 \begin{block}{Acknowledgements}     
 \footnotesize
+\begin{large}
 This research was supported by the Social Sciences and Humanities Research Council of Canada.
+\end{large}
 \end{block}
 
 \blockSpace{}
@@ -204,14 +210,31 @@ This research was supported by the Social Sciences and Humanities Research Counc
 \raisebox{0.1cm}{\includegraphics[scale=1]{images/Schulich_logo}}
 \hspace{1.2cm} 
 \includegraphics[scale=0.35]{images/CIRMMT_logo}
+\end{block}
+%\blockSpace{}
+\end{column}
+\end{columns}
+%\end{frame}
 
-\raisebox{1cm}{\includegraphics[scale=0.45]{images/ddmal_logo_large}
-\includegraphics[scale=1.4]{images/SIMSSA_logo}}
+\vspace{-5cm}
 
+% Logos at bottom
+%\begin{frame}[fragile,t]
+\begin{columns}
+\begin{column}{\onecolwid}
+\begin{block}{}
+\centering
 \includegraphics[scale=2.1]{images/SSHRC_logo}
 \end{block}
-\blockSpace{}
+\end{column}
+\begin{column}{\onecolwid}
+\begin{block}{}
+\centering
+\includegraphics[scale=0.45]{images/ddmal_logo_large}
+\includegraphics[scale=1.25]{images/SIMSSA_logo}
+\end{block}
 \end{column}
 \end{columns}
 \end{frame}
+
 \end{document}
