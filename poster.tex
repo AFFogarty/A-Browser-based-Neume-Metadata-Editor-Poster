@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[final]{beamer}
-\usepackage[scale=2]{beamerposter}
+\usepackage[orientation=portrait, size=arch, scale=1.3]{beamerposter}
 \usepackage{graphicx}
 \usepackage[noabbrev,capitalize]{cleveref}
 \usepackage{wrapfig}
@@ -14,8 +14,8 @@
 \usepackage{setspace}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
-\setlength{\paperwidth}{90cm}
-\setlength{\paperheight}{120cm}
+\setlength{\paperwidth}{36in}
+\setlength{\paperheight}{48in}
 \setlength{\topmargin}{0cm}%
 
 \newlength{\sepwid}
@@ -83,7 +83,7 @@
 \begin{columns}
 \begin{column}{\onecolwid}
 
-\vspace{0.5cm}
+\vspace{2cm}
 
 \begin{block}{Motivation}
 The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1], the goal of which is to create a graphical user interface for users to browse and search through high-quality scanned images of Medieval and Renaissance chant manuscripts using metadata and OMR technology. We wanted users to be able to construct search queries without knowing how the data is named in our database and used by the Solr [2] search engine.  To construct such an interface, we needed a system for mapping names and images onto unique neume identifiers.
@@ -93,21 +93,11 @@ The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1
 
 \vspace{-2.5cm}
 
-%\begin{block}{}
-%\centering
-%\includegraphics[scale=1]{images/different-hands.png}
-% 
-%
-%Figure 1: Handwriting change in the St. Gallen 391 manuscript
-%\end{block}
-%\blockSpace{}
-
 \begin{block}{}
 \centering
-\includegraphics[scale=2.5]{images/neume-comparison/neume1.png}\hspace{1em}
-\includegraphics[scale=1.85]{images/neume-comparison/neume2.png} 
+\includegraphics[width=\onecolwid]{images/different-hands.png}
 
-Figure 1: St. Gallen Clivis (left) and Salzinnes Clivis (right)
+Handwriting change in the St. Gallen 391 manuscript
 \end{block}
 \blockSpace{}
 
@@ -126,7 +116,7 @@ The design goals were to:
 # Store neumes, names, and images as unique objects.
 # Represent neume types with single, canonical identifiers.
 # Establish neume-to-name and neume-to-image relationships.
-# Distinguish between neumes of the same type and neumes of different types.
+# Distinguish between neumes of the same type and neumes of different types, even if their corresponding images have different handwriting styles.
 # Provide browser-based GUI and RESTful API.
 %# Name from a set can be used to retrieve the neume identifier or the corresponding set of neume images.
 %## Client applications can make these kinds of retrievals by using representational state transfer (REST) to communicate directly.
@@ -147,7 +137,7 @@ The design goals were to:
 \centering
 \includegraphics[width=\onecolwid]{images/neume-list-interface.png} 
 
-Figure 2: The web interface prototype, showing a list of neumes, names, and images
+The web interface prototype, showing a list of neumes, names, and images
 
 
 \end{block}
@@ -155,16 +145,26 @@ Figure 2: The web interface prototype, showing a list of neumes, names, and imag
 \end{block}
 \end{column}
 \begin{column}{\onecolwid}
-\vspace{2.2cm}
+
+\begin{block}{}
+\centering
+\includegraphics[scale=2.5]{images/neume-comparison/neume1.png}\hspace{1em}
+\includegraphics[scale=1.85]{images/neume-comparison/neume2.png} 
+
+St. Gallen Clivis (left) and Salzinnes Clivis (right)
+\end{block}
+\blockSpace{}
+
+%\vspace{2.2cm}
 \begin{block}{The Editor \& API}
 \raggedright
 \begin{easylist}[itemize]
 \ListProperties(Margin1=0cm, Margin2=3cm)
-# Browser-based web application for editing neume metadata (see Figures 2 and 3).  Users can:
+# Browser-based web application for editing neume metadata.  Users can:
 ## Create, update, and delete neumes, names, and images.
 ## Assign names to unique neume identifiers.
 ## Group names by user-defined nomenclatures.
-## Assign glyph images (see Figure 1) to unique neume identifiers.
+## Assign glyph images to unique neume identifiers.
 ## Upload GameraXML and MEI files to extract names and images.
 # RESTful API for easy integration with external client applications, which can:
 ## Retrieve names and images for particular neumes and nomenclatures.
@@ -177,9 +177,9 @@ Figure 2: The web interface prototype, showing a list of neumes, names, and imag
 
 \begin{block}{}
 \centering
-\includegraphics[scale=1]{images/web-interface.png} 
+\includegraphics[width=\onecolwid]{images/web-interface.png} 
 
-Figure 3: The web interface prototype, showing a ``Virga Episema'' neume being edited
+The web interface prototype, showing a ``Virga Episema'' neume being edited
 \end{block}
 \blockSpace{}
 
@@ -193,30 +193,27 @@ Figure 3: The web interface prototype, showing a ``Virga Episema'' neume being e
 \blockSpace{} 
 
 \begin{block}{Acknowledgements}     
-\footnotesize
-\begin{large}
 This research was supported by the Social Sciences and Humanities Research Council of Canada.
-\end{large}
 \end{block}
 
 \blockSpace{}
 
-\vspace{-3.5cm}
+\vspace{-2cm}
 
 \begin{block}{}
 \centering
-\raisebox{0.7cm}{\includegraphics[scale=0.35]{images/McGill_logo}}
+\raisebox{0.7cm}{\includegraphics[scale=0.2625]{images/McGill_logo}}
 \hspace{1.2cm} 
-\raisebox{0.1cm}{\includegraphics[scale=1]{images/Schulich_logo}}
+\raisebox{0.1cm}{\includegraphics[scale=0.75]{images/Schulich_logo}}
 \hspace{1.2cm} 
-\includegraphics[scale=0.35]{images/CIRMMT_logo}
+\includegraphics[scale=0.2625]{images/CIRMMT_logo}
 \end{block}
 %\blockSpace{}
 \end{column}
 \end{columns}
 %\end{frame}
 
-\vspace{-5cm}
+\vspace{-2cm}
 
 % Logos at bottom
 %\begin{frame}[fragile,t]
@@ -224,14 +221,14 @@ This research was supported by the Social Sciences and Humanities Research Counc
 \begin{column}{\onecolwid}
 \begin{block}{}
 \centering
-\includegraphics[scale=2.1]{images/SSHRC_logo}
+\includegraphics[width=\onecolwid]{images/SSHRC_logo}
 \end{block}
 \end{column}
 \begin{column}{\onecolwid}
 \begin{block}{}
 \centering
-\includegraphics[scale=0.45]{images/ddmal_logo_large}
-\includegraphics[scale=1.25]{images/SIMSSA_logo}
+\includegraphics[scale=0.36]{images/ddmal_logo_large}
+\includegraphics[scale=1]{images/SIMSSA_logo}
 \end{block}
 \end{column}
 \end{columns}
