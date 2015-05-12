@@ -97,7 +97,7 @@ The Neume Metadata Editor was developed as part of the Cantus Ultimus project [1
 \centering
 \includegraphics[width=\onecolwid]{images/different-hands.png}
 
-Figure 1: Handwriting change in the St. Gallen 391 manuscript
+Figure 1: Handwriting change in the St. Gallen 391 manuscript (folio 117)
 \end{block}
 %\blockSpace{}
 
@@ -109,6 +109,9 @@ Figure 1: Handwriting change in the St. Gallen 391 manuscript
 \begin{columns}
 \begin{column}{\onecolwid}
 \begin{block}{}
+
+\vspace{-3cm}
+
 \centering
 \includegraphics[width=\onecolwid]{images/neume-list-interface_cropped.png} 
 
@@ -118,6 +121,7 @@ Figure 2: The Editor, showing a list of neumes, names, and images
 \end{column}
 
 \begin{column}{\onecolwid}
+\vspace{3cm}
 \begin{block}{Design}
 \begin{center}
 \vspace{-0.25\baselineskip}
@@ -150,10 +154,11 @@ The design goals were to:
 
 \end{columns}
 
-\vspace{-2cm}
+\vspace{-1cm}
 
 \begin{columns}
 \begin{column}{\onecolwid}
+\vspace{2cm}
 \begin{block}{The Editor \& API}
 \raggedright
 Browser-based web application for editing neume metadata.  Users can:
@@ -165,6 +170,8 @@ Browser-based web application for editing neume metadata.  Users can:
 # Assign glyph images to unique neume identifiers.
 # Upload GameraXML and MEI files to extract names and images.
 \end{easylist}
+
+\vspace{1.5em}
 
 RESTful API for easy integration with external client applications, which can:
 \begin{easylist}[itemize]
@@ -178,7 +185,7 @@ RESTful API for easy integration with external client applications, which can:
 \begin{column}{\onecolwid}
 \begin{block}{}
 \centering
-\includegraphics[width=\onecolwid]{images/web-interface.png} 
+\includegraphics[width=\onecolwid]{images/neume-edit-interface_cropped.png} 
 
 Figure 3: Editing a ``Virga Episema'' neume
 \end{block}
@@ -203,9 +210,19 @@ Figure 3: Editing a ``Virga Episema'' neume
 \includegraphics[scale=0.2625]{images/CIRMMT_logo}
 
 \vspace{0.5cm}
-
-\includegraphics[scale=0.36]{images/ddmal_logo_large}
-\includegraphics[scale=1]{images/SIMSSA_logo}
+\begin{flushleft}
+\begin{minipage}{0.49\onecolwid}
+\begin{flushleft}
+\vspace{0.6615cm}
+\includegraphics[scale=0.3591]{images/ddmal_logo_large_cropped}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.49\onecolwid}
+\begin{flushright}
+\includegraphics[scale=0.945]{images/SIMSSA_logo}
+\end{flushright}
+\end{minipage}
+\end{flushleft}
 
 \vspace{1.5cm}
 
@@ -217,7 +234,6 @@ Figure 3: Editing a ``Virga Episema'' neume
 \vspace{3cm}
 
 \begin{block}{References}
-\footnotesize
 [1] http://cantus.simssa.ca/        
 
 [2] http://lucene.apache.org/solr/
@@ -230,13 +246,20 @@ This research was supported by the Social Sciences and Humanities Research Counc
 
 %\vspace{2em}
 
-\begin{flushright}
-Music Encoding Conference 2015
-\end{flushright}
+%\begin{flushright}
+%Music Encoding Conference 2015
+%\end{flushright}
 \end{block}
 
 \end{column}
 \end{columns}
+
+\vspace{1.5em}
+
+\begin{center}
+    \footnotesize
+    Presented at the 2015 Music Encoding Conference, Florence, Italy, 18--21 May 2015
+\end{center}
 \end{frame}
 
 \end{document}
